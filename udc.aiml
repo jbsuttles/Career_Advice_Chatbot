@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    
+  <category>
+    <pattern>HELLO</pattern>
+    <template>
+        Thanks for contacting the WGU Career Center.<delay>2</delay>
+        My name is Sage the Night Owl!<delay>2</delay>
+        I'm going to ask you a few questions so I can help you find a field you
+        might find interesting.<delay>2</delay>
+        Are you ready?
+        <reply>
+            <text>Yes!</text>
+            <postback>CHOOSEYES</postback>
+        </reply>
+        <reply>
+            <text>No.</text>
+            <postback>CHOOSENO</postback>
+        </reply>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>HI</pattern>
+    <template><srai>HELLO</srai></template>
+  </category>
+  
+  <category>
+    <pattern>HEY</pattern>
+    <template><srai>HELLO</srai></template>
+  </category>
+  
+  <category>
+    <pattern>GOOD *</pattern>
+    <template>
+        <think><set name="greeting"><star/></set></think>
+        <condition name="greeting">
+            <li value="MORNING"><srai>HELLO</srai></li>
+            <li value="AFTERNOON"><srai>HELLO</srai></li>
+            <li value="EVENING"><srai>HELLO</srai></li>
+            <li><srai>*</srai></li>
+        </condition>
+    </template>
+  </category>
+  
+  <category>
+      <pattern>CHOOSEYES</pattern>
+      <template>
+          Do you like working with data?
+          <button>
+              <text>Yes</text>
+              <postback>YESDATA</postback>
+          </button>
+          <button>
+              <text>No</text>
+              <postback>NEXTQUESTION</postback>
+          </button>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>CHOOSENO</pattern>
+      <template>Please come back when you are ready for our help. Thanks!</template>
+  </category>
+  
+  <category>
+      <pattern>YESDATA</pattern>
+      <template>
+          Which of the following would you prefer?
+          <button>
+              <text>Analyzing and processing data to find trends</text>
+              <postback>DATASCIENTIST</postback>
+          </button>
+          <button>
+              <text>Develop and improve databases</text>
+              <postback>DBADMIN</postback>
+          </button>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>NEXTQUESTION</pattern>
+      <template>Do you like programming?
+        <button>
+          <text>Yes</text>
+          <postback>SOFTDEV</postback>
+        </button>
+        <button>
+            <text>No</text>
+            <postback>LASTQUESTION</postback>
+        </button>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>LASTQUESTION</pattern>
+      <template>Do you like working with electronic components?
+      <button>
+          <text>Yes</text>
+          <postback>YESCOMP</postback>
+      </button>
+      <button>
+          <text>No</text>
+          <postback>ADVISOR</postback>
+      </button>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>YESCOMP</pattern>
+      <template>
+          Which of the following would you prefer?
+          <button>
+              <text>Working with internal computer parts</text>
+              <postback>HARDWARE</postback>
+          </button>
+          <button>
+              <text>Working with communication systems, cables, and servers</text>
+              <postback>NETWORK</postback>
+          </button>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>DATASCIENTIST</pattern>
+      <template>You might want to be a Data Scientist</template>
+  </category>
+  
+    <category>
+      <pattern>DBADMIN</pattern>
+      <template>You might want to be a Database Administrator</template>
+    </category>
+    
+    <category>
+      <pattern>SOFTDEV</pattern>
+      <template>You might want to be a Software Developer</template>
+    </category>
+    
+    <category>
+      <pattern>HARDWARE</pattern>
+      <template>You might want to be a Computer Hardware Engineer</template>
+    </category>
+    
+    <category>
+      <pattern>NETWORK</pattern>
+      <template>You might want to be a Computer Network Architect</template>
+    </category>
+    
+    <category>
+        <pattern>ADVISOR</pattern>
+        <template>Please reach out to a Career Center 
+        advisor for additional help. Thanks!</template>
+    </category>
+
+  <category>
+    <pattern>*</pattern>
+    <template>I have no answer for that.</template>
+  </category>
+</aiml>
